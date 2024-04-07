@@ -46,9 +46,6 @@ import tempfile
 from PIL import Image
 from io import BytesIO
 
-api_key = st.secrets["default"]["api_key"]
-
-
 # 실시간으로 대답할 수 있게 하는 핸들러
 class StreamHandler(BaseCallbackHandler):
     def __init__(self, container, initial_text="", display_method='markdown'):
