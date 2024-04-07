@@ -9,19 +9,19 @@
 # 2. 커맨드창을 열어서 py파일이 있는 곳까지 이동한다.
 # 3. streamlit run OO.py 실행
 
-# In[11]:
+# In[14]:
 
 
 #!pip install streamlit
 
 
-# In[12]:
+# In[15]:
 
 
 #!pip install streamlit_chat
 
 
-# In[13]:
+# In[16]:
 
 
 import streamlit as st
@@ -45,6 +45,9 @@ import requests
 import tempfile
 from PIL import Image
 from io import BytesIO
+
+# Streamlit 앱에서 보안 비밀 값 가져오기
+api_key = st.secrets["default"]["api_key"]
 
 # 실시간으로 대답할 수 있게 하는 핸들러
 class StreamHandler(BaseCallbackHandler):
@@ -126,8 +129,6 @@ if response.status_code == 200:
 
     # Initialize OpenAI client
     client = OpenAI(api_key=api_key)
-    
-    
     
     st.chat_message("user").write('안녕하세요!')
     st.chat_message("assistant").write('질문이 있으신가요?')
